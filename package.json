@@ -1,0 +1,26 @@
+{
+  "name": "nodebot",
+  "version": "0.0.0",
+  "description": "task auto uploader bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakakendo0321/nodebot.git"
+  },
+  "keywords": [
+    "sakakendo"
+  ],
+  "author": "sakakendo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakakendo0321/nodebot/issues"
+  },
+  "homepage": "https://github.com/sakakendo0321/nodebot#readme",
+  "dependencies": {
+    "@slack/client": "^4.1.0",
+    "request": "^2.85.0"
+  }
+}
