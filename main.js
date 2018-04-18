@@ -14,11 +14,24 @@ rtm.on('hello',(event)=>{
 });
 
 rtm.on('message',(event)=>{
-	console.log('event occured');
+//	console.log('event occured');
 	if(event.subtype && event.subtype ==='file_share'){
 		console.log('file shared',event.subtype,event.file,event.file.url_private,event.file.filetype);
 		download(event.file);
-	} else console.log('another type');
+//		upload(file.name);
+	}else if(event.text){
+		if(event.text==='help'){
+			console.log('Usage');
+		}/*else if(event.text==='ls submitted'){
+			console.log('show submitted files');
+		}else if(event.text==='ls submit'){
+			console.log('show should submit files');
+		}*/else{
+			console.log('unknown command');
+		}
+	}else{
+		console.log('unknown status');
+	}
 });
 
 function download(file){
@@ -31,21 +44,30 @@ function download(file){
 		headers:{'Authorization': 'Bearer '+token}}).pipe(fs.createWriteStream('./files/'+file.name));
 }
 
-
-
+/*
+function upload(name){
+	//search db
+	uploadYama();
+}
 
 // push file to yama
-/*
-var form=new FormData;
-form.append("submit",fs.createReadStream("./sample.txt");
+function uploadYama(name){
+	var form=new FormData;
+	form.append("submit",fs.createReadStream("./files/"+name);
+	request.post({url:'http://yamashita002.je.tokyo-ct.ac.jp/reports2018_yama/4Jucom.php?',formData:form},function(err,httpResponce,body){
+		if(err){
+			return console.error('upload failed',err);
+		}else{
+			console.log('upload succeed');
+		}
+	});
+}
 
-request.post({url:'http://yamashita002.je.tokyo-ct.ac.jp/reports2018_yama/4Jucom.php?',formData:form},function(err,httpResponce,body){
-	if(err){
-		return console.error('upload failed',err);
-	}else{
-		console.log('upload succeed');
-	}
-});
+function uploadMon(name){
+
+}
+
+function reply(id,text){
+
+}
 */
-
-
